@@ -143,3 +143,12 @@ function longVowels(string) {
 
 // console.log(longVowels('college'));
 // console.log(longVowels('cheese'));
+function sumNumbers(list) {
+    let sum = 0;
+    for (let number of list) {
+        sum += number;
+    }
+    return sum;
+}
+
+// console.log(sumNumbers([1, 4, 8]))
