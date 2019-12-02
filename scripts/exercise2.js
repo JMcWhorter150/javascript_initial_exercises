@@ -49,6 +49,7 @@ function printBox(width, height) {
 
 function printBanner(text) {
     let topBanner = "";
+    // creates top banner length + 4 due to the spaces and * on each side
     for (let asteriskNumber = 0; asteriskNumber<(text.length + 4); asteriskNumber++) {
         topBanner += "*";
     }
@@ -58,3 +59,16 @@ function printBanner(text) {
 }
 
 // printBanner('Welcome to DigitalCrafts');
+
+function factors(number) {
+    const newArray = []
+    for (let factor = 1; factor < (number + 1); factor++) {
+        if (number % factor === 0) {
+            newArray.push(factor);
+        }
+    }
+    return newArray;
+}
+
+// to find the factors of 120, I first start at 1, then I divide 120 by 1. If it is divisible by 1, I add 1 to the list. Then I go to 2. If 120 divided by number has no remainder, then I ........
+// console.log(factors(120));
