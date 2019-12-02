@@ -45,8 +45,16 @@ function printBox(width, height) {
     console.log(emptyString);
 }
 
-printBox(6, 4);
+// printBox(6, 4);
 
 function printBanner(text) {
-    for () {}
+    let topBanner = "";
+    for (let asteriskNumber = 0; asteriskNumber<(text.length + 4); asteriskNumber++) {
+        topBanner += "*";
+    }
+    console.log(topBanner);
+    console.log(`* ${text} *`);
+    console.log(topBanner);
 }
+
+// printBanner('Welcome to DigitalCrafts');
