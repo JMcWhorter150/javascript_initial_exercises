@@ -227,3 +227,48 @@ function rockPaperScissors(throw1, throw2) {
 // console.log(rockPaperScissors('rock', 'paper'));
 // console.log(rockPaperScissors('paper', 'paper'));
 
+function ticTacToe(matrix) {
+    const players = ["X", "O"];
+    // check columns
+    // check rows
+    for (let player of players) {
+        for (let i=0; i<3; i++) {
+            //check row
+            if ((matrix[i][0] === player) && (matrix[i][1] === player) && (matrix[i][2] === player)) {
+                return player;
+                //check column
+            } else if ((matrix[0][i] === player) && (matrix[1][i] === player) && (matrix[2][i] === player)) {
+                return player;
+            }
+        }
+        // right diagonal
+        if ((matrix[2][0] === player) && (matrix[1][1] === player) && (matrix[0][2] === player)) {
+            return player;
+        // left diagonal
+        } else if ((matrix[0][0] === player) && (matrix[1][1] === player) && (matrix[2][2] === player)) {
+            return player;
+        }
+    }
+    return "null";
+}
+console.log(ticTacToe([
+    ['O', 'O', 'O'],
+    ['X', null, 'X'],
+    [null, 'X', null]
+    ]));
+console.log(ticTacToe([
+    ['O', 'X', 'O'],
+    ['O', 'X', null],
+    [null, 'X', null]
+    ]));
+console.log(ticTacToe([
+    ['O', 'X', 'O'],
+    ['O', 'O', null],
+    [null, 'X', 'X']
+    ]));
+
+console.log(ticTacToe([
+    ['O', 'X', 'O'],
+    ['O', 'O', "X"],
+    [null, 'X', 'O']
+    ]));
