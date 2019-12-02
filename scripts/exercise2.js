@@ -117,3 +117,29 @@ function leetspeak(string) {
 }
 
 // console.log(leetspeak("this is a sentence of random letters"));
+
+function longVowels(string) {
+    // makes string lowerCase
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    string = string.toLowerCase();
+    // if there are multiple vowels in a row, this removes them
+    for (let index = 0; index<string.length; index++) {
+        if (vowels.includes(string[index]) && (string[index] === string[index+1])) {
+            string = string.replace(string[index], "");
+        }
+    }
+    let longString = "";
+    for (let character of string) {
+        if (vowels.includes(character)) {
+            for (let i = 0; i < 5; i++) {
+                longString += character;
+            }
+        } else {
+            longString += character;
+        }
+    }
+    return longString;
+}
+
+// console.log(longVowels('college'));
+// console.log(longVowels('cheese'));
