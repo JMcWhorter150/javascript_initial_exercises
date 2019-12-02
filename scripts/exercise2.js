@@ -74,13 +74,16 @@ function factors(number) {
 // console.log(factors(120));
 
 function cipher(string, offset) {
+    // since I don't have uppercase and lowercase in my alphabet, this makes the string all lowercase
     let cleanString = string.toLowerCase();
     const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
     let newString = "";
     for (let character of cleanString) {
+        // could be changed to see if character is in alphabet. If so, then do the offsetting. Else, return the character. Catches more errors
         if (character === " ") {
             newString += " ";
         } else {
+            // from inside out, finds the alphabet index of the character in the string, adds the offset amount, converts this new number to a number inside the range of the alphabet ( % 26), then finds what new letter in the alphabet is at that position, then adds it to the new string.
             newString += alphabet[(alphabet.indexOf(character) + offset) % 26];
         }
     }
@@ -92,6 +95,7 @@ function cipher(string, offset) {
 // console.log(cipher('travhf jvgubhg rqhpngvba vf yvxr fvyire va gur zvar', 13))
 
 function leetspeak(string) {
+    // cleans the string so that it is all uppercase
     string = string.toUpperCase();
     let leetString = "";
     for (let character of string) {
@@ -110,6 +114,7 @@ function leetspeak(string) {
         } else if (character === "T") {
             leetString += "7";
         } else {
+            // catches errors since all other characters just get added back to the new leetString
             leetString += character;
         }
     }
@@ -122,24 +127,35 @@ function longVowels(string) {
     // makes string lowerCase
     const vowels = ['a', 'e', 'i', 'o', 'u'];
     string = string.toLowerCase();
+    let newString = string
     // if there are multiple vowels in a row, this removes them
     for (let index = 0; index<string.length; index++) {
         if (vowels.includes(string[index]) && (string[index] === string[index+1])) {
-            string = string.replace(string[index], "");
+            newString = string.replace(string[index], (string[index] + string[index] + string[index] + string[index]));
         }
     }
-    let longString = "";
-    for (let character of string) {
-        if (vowels.includes(character)) {
-            for (let i = 0; i < 5; i++) {
-                longString += character;
-            }
-        } else {
-            longString += character;
-        }
-    }
-    return longString;
+    return newString;
 }
+
+// console.log(longVowels('cheese'));
+// console.log(longVowels('man'));
+
+
+    // All the below was unnecessary to solve the problem. It makes each vowel 5 times.
+//     let longString = "";
+//     for (let character of string) {
+//         // checks to make sure character is a vowel
+//         if (vowels.includes(character)) {
+//             // adds 5 vowels. Change 5 to a variable, and the function can change the number of vowels to any amount
+//             for (let i = 0; i < 5; i++) {
+//                 longString += character;
+//             }
+//         } else {
+//             longString += character;
+//         }
+//     }
+//     return longString;
+// }
 
 // console.log(longVowels('college'));
 // console.log(longVowels('cheese'));
@@ -169,8 +185,11 @@ function positiveNumbers(array) {
 
 function matrixAdd(matrix1, matrix2) {
     let newMatrix = [[], []];
+    // sets i to the row number
     for (let i=0; i<matrix1.length; i++) {
+        // sets j to the column (or array index) number
         for (let j=0; j<matrix1[0].length; j++) {
+            // from inside out, gets the value at each spot in matrix1, starting at the top left, and adds it to the value at the same position in matrix 2. Then it adds this value to the correct place in newMatrix
             newMatrix[i].push(matrix1[i][j] + matrix2[i][j]);
         }
     }
@@ -178,3 +197,17 @@ function matrixAdd(matrix1, matrix2) {
 }
 
 // console.log(matrixAdd([[1, 3], [2, 4]], [[5, 2], [1, 0]]));
+
+function matrixMultiply(matrix1, matrix2) {
+    let newMatrix = [[], []];
+    for (let i=0; i<matrix1.length; i++) {
+        for (let j=0; j<matrix1[0].length; j++) {
+            newMatrix[i].push(matrix1[i][0] * matrix2[0][j] + matrix1[i][1] * matrix2[1][j]);
+        }
+    }
+    return newMatrix;
+}
+
+// console.log(matrixMultiply([[1, 7], [2, 4]], [[3, 3], [5, 2]]))
+// console.log(matrixMultiply([[2, 4], [3, 4]], [[5, 2], [3, 1]]))
+
