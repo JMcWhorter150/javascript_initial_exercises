@@ -166,3 +166,15 @@ function positiveNumbers(array) {
 // console.log(positiveNumbers([1, -3, 5, -3, 0]));
 // console.log(positiveNumbers([1, 2, 3]));
 // console.log(positiveNumbers([-1, -2, -3]));
+
+function matrixAdd(matrix1, matrix2) {
+    let newMatrix = [[], []];
+    for (let i=0; i<matrix1.length; i++) {
+        for (let j=0; j<matrix1[0].length; j++) {
+            newMatrix[i].push(matrix1[i][j] + matrix2[i][j]);
+        }
+    }
+    return newMatrix;
+}
+
+// console.log(matrixAdd([[1, 3], [2, 4]], [[5, 2], [1, 0]]));
