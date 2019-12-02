@@ -211,3 +211,19 @@ function matrixMultiply(matrix1, matrix2) {
 // console.log(matrixMultiply([[1, 7], [2, 4]], [[3, 3], [5, 2]]))
 // console.log(matrixMultiply([[2, 4], [3, 4]], [[5, 2], [3, 1]]))
 
+function rockPaperScissors(throw1, throw2) {
+    const throwList = ['rock', 'paper', 'scissors'];
+    const throwList2 = ['paper', 'scissors', 'rock']
+    if (throwList.indexOf(throw1) === throwList.indexOf(throw2)) {
+        return "draw";
+    } else if (throwList.indexOf(throw1) === throwList2.indexOf(throw2)) {
+        return "player2";
+    } else {
+        return "player1";
+    }
+}
+
+// console.log(rockPaperScissors('rock', 'scissors'));
+// console.log(rockPaperScissors('rock', 'paper'));
+// console.log(rockPaperScissors('paper', 'paper'));
+
