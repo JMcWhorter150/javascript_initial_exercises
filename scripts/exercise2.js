@@ -143,12 +143,26 @@ function longVowels(string) {
 
 // console.log(longVowels('college'));
 // console.log(longVowels('cheese'));
-function sumNumbers(list) {
+function sumNumbers(array) {
     let sum = 0;
-    for (let number of list) {
+    for (let number of array) {
         sum += number;
     }
     return sum;
 }
 
 // console.log(sumNumbers([1, 4, 8]))
+
+function positiveNumbers(array) {
+    newArray = [];
+    for (let number of array) {
+        if (number >= 0) {
+            newArray.push(number);
+        }
+    }
+    return newArray;
+}
+
+// console.log(positiveNumbers([1, -3, 5, -3, 0]));
+// console.log(positiveNumbers([1, 2, 3]));
+// console.log(positiveNumbers([-1, -2, -3]));
