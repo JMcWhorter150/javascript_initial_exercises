@@ -7,13 +7,13 @@ function printNumbers(startNumber, endNumber) {
 // printNumbers(1, 10);
 
 function printSquare(size) {
+    let emptyString = "";
+    // creates the * string to print
+    for (let j = 0; j<size; j++) {
+        emptyString += "*";
+    }
     // prints the the *** string size times
     for (let i = 0; i<size; i++) {
-        let emptyString = "";
-        // creates the * string to print
-        for (let j = 0; j<size; j++) {
-            emptyString += "*";
-        }
         console.log(emptyString);
     }
 }
@@ -49,7 +49,7 @@ function printBox(width, height) {
 
 function printBanner(text) {
     let topBanner = "";
-    // creates top banner length + 4 due to the spaces and * on each side
+    // creates top banner length + 4 due to the space and * on each side
     for (let asteriskNumber = 0; asteriskNumber<(text.length + 4); asteriskNumber++) {
         topBanner += "*";
     }
@@ -251,24 +251,24 @@ function ticTacToe(matrix) {
     }
     return "null";
 }
-console.log(ticTacToe([
-    ['O', 'O', 'O'],
-    ['X', null, 'X'],
-    [null, 'X', null]
-    ]));
-console.log(ticTacToe([
-    ['O', 'X', 'O'],
-    ['O', 'X', null],
-    [null, 'X', null]
-    ]));
-console.log(ticTacToe([
-    ['O', 'X', 'O'],
-    ['O', 'O', null],
-    [null, 'X', 'X']
-    ]));
+// console.log(ticTacToe([
+//     ['O', 'O', 'O'],
+//     ['X', null, 'X'],
+//     [null, 'X', null]
+//     ]));
+// console.log(ticTacToe([
+//     ['O', 'X', 'O'],
+//     ['O', 'X', null],
+//     [null, 'X', null]
+//     ]));
+// console.log(ticTacToe([
+//     ['O', 'X', 'O'],
+//     ['O', 'O', null],
+//     [null, 'X', 'X']
+//     ]));
 
-console.log(ticTacToe([
-    ['O', 'X', 'O'],
-    ['O', 'O', "X"],
-    [null, 'X', 'O']
-    ]));
+// console.log(ticTacToe([
+//     ['O', 'X', 'O'],
+//     ['O', 'O', "X"],
+//     [null, 'X', 'O']
+//     ]));
